@@ -1,13 +1,5 @@
 <?php
-include './header.php';
-
-
-
-if(isset($_SESSION['utilisateur'][0])){
-            ?>
-                vous etes connecté
-            <?php
-          }
+include 'header.php'; // Inclut le contenu de header.php
 ?>
 
 <!DOCTYPE html>
@@ -20,54 +12,42 @@ if(isset($_SESSION['utilisateur'][0])){
   <title>Attraction</title>
 </head>
 <body>
-  <p>Notre Parc d'atraction propose une ribembelle de diversement à votre entière disposition. <br> 
-    Nous vous proposont de tout, du grand 8 au tpurniquet en passent par les maison hantées.<br>
-    Voici ci-dessou, la liste des atraction propser par notre parc.<br> 
-    Retrouvons nous au pays des reve est des sensation :) .</p>
+  <p>Notre Parc d'attraction propose une ribambelle de diversité à votre entière disposition. <br> 
+    Nous vous proposons de tout, du grand 8 au tournevis en passant par les maisons hantées.<br>
+    Voici ci-dessous, la liste des attractions proposées par notre parc.<br> 
+    Retrouvons-nous au pays des rêves et des sensations :) .</p>
+
+  <form method="post" action="enregistrer_favoris.php">
+    <table>
+      <?php
+      $attractions_file = 'Atraction.csv';
+
+      // Vérification de l'existence du fichier d'attractions
+      if (($file = fopen($attractions_file, 'r')) !== FALSE) {
+      
+        while (($data = fgetcsv($file, 1000, ";")) !== FALSE) {
+          // Affichage des attractions avec des cases à cocher
+          echo "<tr>";
 
 
-    <?php 
-    $file = fopen('Atraction.csv', 'r');
-    if($file !== FALSE){
-        echo "<table>";
-    }
+echo "<td>" . htmlspecialchars($data[0]) . "</td>"; // Nom de l'attraction
+echo "<td>" . htmlspecialchars($data[1]) . "</td>"; // Taille de l'attraction
+echo "<td>" . htmlspecialchars($data[2]) . "</td>"; // Public de l'attraction
+echo "<td>" . htmlspecialchars($data[3]) . "</td>"; // Parc de l'attraction
 
-    while (($row = fgetcsv($file, 6000,";")) !== FALSE){
-        $numero = $row[0];
-        $nom = $row[1];
-        $taille = $row[2];
-        $public = $row[3];
-        $note = $row[5];
-        echo "<tr>";
-        echo "<td>$numero</td>";
-        echo "<td>$nom</td>";
-        echo "<td>$taille</td>";
-        echo "<td>public</td>";
-        echo "<td>$note</td>";
-        echo "<td><button id='$numero' onclick='function()'>Favoris</button></td>";
-        echo "</tr>";
-    
-    }
-    
-    fclose($file);
-    ?>
+echo "<td><input type='checkbox' name='favorites[]' value='" . htmlspecialchars($data[0]) . "'></td>"; // Case à cocher pour sélectionner l'attraction
+echo "</tr>";
+
+        }
+        fclose($file); // Fermeture du fichier
+      }
+      ?>
+    </table>
+    <input type="submit" value="Enregistrer les favoris">
+  </form>
+  <?php
+$message = "très bien 🏰₊˚⊹♡ ";
+echo $message;
+?>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("#bouton").click(function(){
-        var valeur = $(this).id(); // Récupère le texte du bouton
-        $.ajax({
-            type: "POST", // ou "GET" selon vos besoins
-            url: "traitement_fav.php",
-            data: { valeur: valeur }, // Envoie la valeur à PHP
-            success: function(response){
-                $("#resultat").html(response); // Affiche la réponse de PHP
-            }
-        });
-    });
-});
-</script>
-
-
 </html>

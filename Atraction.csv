@@ -1,6 +1,6 @@
-Numéro;Attraction;Taille;Public;Parc;Note 
-1;it's a small world';Pas de restriction;Divertissement;pour les plus petits;Parc Disneyland - Fantasyland;4
-2;Adventure Isle;Pas de restriction;Aventure en famille;Parc Disneyland - Adventureland;3
-3;Alice's Curious Labyrinth	Pas de restriction;Divertissement;pour les plus petits;Parc Disneyland - Fantasyland;3
-4;Armageddon : les Effets Spéciaux;Pas de restriction;Aventure en famille, Peut effrayer les plus petits;Parc Walt Disney Studios - Backlot;5
-5;Art of Disney Animation;Pas de restriction;Divertissement pour les plus petits;Parc Walt Disney Studios - Toon Studio;3
+Attraction;Taille;Public;Parc;
+it's a small world;Pas de restriction;pour les plus petits;Parc Disneyland - Fantasyland;
+Adventure Isle;Pas de restriction;Aventure en famille;Parc Disneyland - Adventureland;
+Alice's Curious Labyrinth;Pas de restriction;pour les plus petits;Parc Disneyland - Fantasyland;
+Armageddon les Effets Spéciaux;Pas de restriction;Aventure en famille, Peut effrayer les plus petits;Parc Walt Disney Studios - Backlot;
+Art of Disney Animation;Pas de restriction; pour les plus petits;Parc Walt Disney Studios - Toon Studio;
