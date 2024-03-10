@@ -41,6 +41,9 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link" href="./produits.php">Produits</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./favoris.php">Favoris</a>
+              </li>
             <?php
           }
           else{

@@ -9,7 +9,7 @@ body {
   }
   
   table {
-    width: 100%; /* Largeur de la table */
+    width: 70%; /* Largeur de la table */
     border-collapse: collapse; /* Fusionner les bordures */
     margin-top: 20px; /* Marge en haut de la table */
   }
@@ -26,12 +26,18 @@ body {
   
   tr:nth-child(even) {
     background-color: #f2f2f24d; /* Couleur de fond des lignes paires */
+    height: 100px;
   }
   
   tr:nth-child(odd) {
     background-color: #ffffff4a; /* Couleur de fond des lignes impaires */
+    height: 100px;
   }
   
  video{
     text-align: center;
+ }
+ img {
+  width: 30%;
+  height: 30%;
  }

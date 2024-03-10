@@ -25,7 +25,7 @@ include 'header.php'; // Inclut le contenu de header.php
       // Vérification de l'existence du fichier d'attractions
       if (($file = fopen($attractions_file, 'r')) !== FALSE) {
       
-        while (($data = fgetcsv($file, 1000, ";")) !== FALSE) {
+        while (($data = fgetcsv($file, 16000, ";")) !== FALSE) {
           // Affichage des attractions avec des cases à cocher
           echo "<tr>";
 
@@ -34,6 +34,7 @@ echo "<td>" . htmlspecialchars($data[0]) . "</td>"; // Nom de l'attraction
 echo "<td>" . htmlspecialchars($data[1]) . "</td>"; // Taille de l'attraction
 echo "<td>" . htmlspecialchars($data[2]) . "</td>"; // Public de l'attraction
 echo "<td>" . htmlspecialchars($data[3]) . "</td>"; // Parc de l'attraction
+echo "<td><img src='". htmlspecialchars($data[4]) . "' alt='image'></td>";
 
 echo "<td><input type='checkbox' name='favorites[]' value='" . htmlspecialchars($data[0]) . "'></td>"; // Case à cocher pour sélectionner l'attraction
 echo "</tr>";
