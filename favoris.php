@@ -16,16 +16,13 @@ $user =$_SESSION['username'];
   <h1>FAVORIS</h1>
 
   <?php
-      $attractions_file = 'favoris_$user.csv';
+      $attractions_file = "favoris_$user.csv";
 
       // Vérification de l'existence du fichier d'attractions
       if (($file = fopen($attractions_file, 'r')) !== FALSE) {
         while (($data = fgetcsv($file, 6000, ";")) !== FALSE) {
           // Affichage des attractions en favoris
-          echo "<ul>";
-
-echo "<li>" . htmlspecialchars($data[0]) . "</li>"; // Nom de l'attraction
-echo "</ul>";
+            echo "<li>" . htmlspecialchars($data[0]) . "</li>"; // Nom de l'attraction
 
         }
         fclose($file); // Fermeture du fichier
